@@ -87,10 +87,11 @@ void Sha256Class::addUncounted(uint8_t data) {
   }
 }
 
-size_t Sha256Class::write(uint8_t data) {
+__WRITE_RESULT Sha256Class::write(uint8_t data) {
   ++byteCount;
   addUncounted(data);
-  return 0;
+
+  __WRITE_RETURN(1);
 }
 
 void Sha256Class::pad() {
